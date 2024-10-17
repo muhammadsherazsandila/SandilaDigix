@@ -1,38 +1,442 @@
-.App {
-  text-align: center;
+@import url(https://fonts.google.com/specimen/Poppins);
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins",sans-serif;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  scroll-behavior: smooth;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navigation{
+  padding: 15px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  z-index: 12;
+  transition: all 0.5s ease;
+}
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_items_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 27%;
+  margin-bottom: 1px;
+}
+@media (max-width:1100px){
+  .nav_items_container{
+    width: 35%;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media (max-width:800px){
+  .nav_items_container{
+    width: 47%;
+  }
+}
+.logo{
+  font-size: 22px;
+  letter-spacing: 2px;
+  word-spacing: 0.5rem;
+}
+.logoLink{
+  text-decoration: none;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.colored_logo{
+  color: #ed1c24;
+}
+.nav_item{
+  list-style-type: none;
+}
+.nav_item_link{
+  position: relative;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.nav_item_link::before{
+  content: "";
+  position: absolute;
+  left: -2px;
+  bottom: -2px;
+  width: 100%;
+  background-color: white;
+  padding: 2px;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+}
+.nav_item_link:hover::before{
+  transform: scaleX(1);
+}
+/* @media (max-width:600px) {
+  .large_nav_items_container{
+    display: none;
+  } 
+} */
+.burger{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: right;
+  z-index: 12;
+}
+.line{
+  width: 25px;
+  padding: 2px;
+  margin: 2px 0px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+.burger :nth-child(1){
+  transform-origin: top right;
+}
+.burger :nth-child(3){
+  transform-origin: bottom right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:600px) {
+  .burger{
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width:600px) {
+  .large_nav_items_container{
+    display: none;
   }
+}
+.small_nav_items_container{
+  display: none;
+}
+@media (max-width:600px) {
+  .small_nav_items_container{
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    height: 100%;
+    transition: all 0.5s ease;
+  }
+}
+@media (max-width:600px) {
+  .nav_item{
+    margin: 10px 0px;
+  }
+}
+
+.animated_element{
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform:  translateY(15%);
+}
+.show{
+  opacity: 1;
+  transform:  translateY(0);
+}
+
+/************************************* Hero section Desinging ************************/
+
+.hero_link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+@media (max-width:472px) {  
+  .hero_link{
+    top: 40%;
+  }
+}
+@media (max-width:350px) {  
+  .hero_link{
+    top: 45%;
+  }
+}
+
+.hero_text{
+  font-size: 50px;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+  display: block;
+  margin: auto;
+  word-spacing: 0.5rem;
+  letter-spacing: 5px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: black 2px;
+}
+@media (max-width:800px) {
+  .hero_text{
+    font-size: 30px;
+    -webkit-text-stroke: black 1px;
+  }
+}
+@media (max-width:472px) {  
+  .hero_text{
+    font-size: 20px;
+  }
+}
+@media (max-width:350px) {  
+  .hero_text{
+    font-size: 18px;
+  }
+}
+.whatsAppLink{
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  width: 130px;
+  transition: background-color 0.3s;
+  margin-top: 5px;
+}
+.whatsAppLink:hover{
+  background-color: black;
+  color: white;
+}
+@media (max-width:350px) {
+  .whatsAppLink{
+    width: 100px;
+    padding: 8px;
+    font-size: 13px;
+  }
+}
+.slider {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: hidden;
+  background-color: rgba(37, 35, 35, 0.228);
+}
+.slider-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 1s ease;
+}
+.scale_out{
+  transform: scale(1);
+}
+.scale_in{
+  transform: scale(0);
+}
+.slider-controls {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.slider-button {
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 26px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0px 5px;
+  transition: background-color 0.3s;
+}
+.slider-button:hover {
+  background-color: black;
+  color: white;
+}
+.whatsAppLinkButton{
+  position: fixed;
+  bottom: 10%;
+  right: 3%;
+  text-decoration: none;
+  z-index: 100;
+}
+.whatsAppIcon{
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  animation: whatsAppIconAni 1s infinite;
+  animation-direction: alternate-reverse;
+}
+@keyframes whatsAppIconAni {
+  from{transform: scale(0.7);}
+  to{transform: scale(1);}
+}
+.whatsAppIcon:hover{
+  transform: scale(0.9);
+}
+
+
+
+/************************************* About section Desinging ************************/
+
+.web_item{
+  width: 80%;
+  display: block;
+  margin: 100px auto;
+}
+.item_heading{
+  position: relative;
+}
+.item_heading::before{
+  content: "";
+  position: absolute;
+  left: -2%;
+  top: 0;
+  background-color: #ed1c24;
+  height: 100%;
+  width: 1%;
+}
+.about_details{
+  margin: 10px 0px;
+}
+
+
+
+
+/************************************* Services section Desinging ************************/
+
+.custom-btn{
+  background: #ed1c24;
+}
+
+
+
+/************************************* Team section Desinging ************************/
+
+.team_slider_controls{
+  top: 64%;
+}
+@media (max-width:1050px) {
+  .team_slider_controls{
+    display: none;
+  }
+}
+.team_slider_button{
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 26px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0px 5px;
+  transition: background-color 0.3s;
+}
+.team_slider_button:hover{
+  background-color: black;
+  color: white;
+}
+.fade_out{
+  opacity: 1;
+}
+.fade_in{
+  opacity: 0;
+}
+.model_team_img{
+  height: 15rem;
+  width: 15rem;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+}
+@media (max-width:1240px) {
+  .model_team_img{
+    height: 90%;
+    width: 90%;
+  }
+}
+
+@media (max-width:1170px) {
+  .model_team_img{
+    height: 80%;
+    width: 80%;
+  }
+}
+@media (max-width:1100px) {
+  .model_team_img{
+    border-radius: 0;
+  }
+}
+.model_team_img_small{
+  height: 6rem;
+  width: 5rem;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+}
+.card{
+  text-align: center;
+  border: none;
+}
+
+@media (max-width:1240px) {
+  .model_card_title{
+    font-size: 20px;
+  }
+}
+
+
+
+/************************************* Footer section Desinging ************************/
+
+.black_footer{
+  width: 100%;
+  background-color: #222;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.nav_items_flex_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nav_items_flex_container a{
+  margin: 10px 0px;
+}
+.social_link img{
+  height: 3rem;
+  width: 3rem;
+
+}
+.copyright{
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+.copyright p{
+  padding: 10px;
+  font-size: 12px;
 }
